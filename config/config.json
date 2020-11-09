@@ -1,5 +1,4 @@
 {
-	"token": "insert-token-here",
-	"prefix": "?",
-	"command_cooldown": 2000
+	"prefix": "YOUR-PREFIX-HERE",
+	"command_cooldown": 5
 }
