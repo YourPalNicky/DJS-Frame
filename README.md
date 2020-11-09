@@ -6,8 +6,6 @@ Discord.JS v12 Framework
 2) Insert your bot token into `config/.env`
 
 ## Installation & Setup
-There are two main methods to set up the bot and install all dependencies: the command line or the included installation file.
-
 ### Method  1: Included Installation File
 1) Run `start.bat`, all required dependencies should install, and then the bot will automatically log in.
 
