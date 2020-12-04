@@ -1,16 +1,15 @@
 const { readdirSync } = require("fs");
 module.exports = function (client) {
-	readdirSync("./commands/").forEach(file => {
-		if (!file.endsWith(".js")) return;
-		let fileName = file.split(".")[0];
-		client.commands.set(fileName, require(`../commands/${fileName}`));
-		console.log(`Loaded the ${fileName} Command!`);
+	let commands = readdirSync("./commands/").filter(x => x.endsWith(".js")).map(x => x.split(".")[0]);
+	let events = readdirSync("./events/").filter(x => x.endsWith(".js")).map(x => x.split(".")[0]);
+
+	commands.forEach(file => {
+		client.commands.set(file, require(`../commands/${file}`));
+		console.log(`Initialized ${file} Command`);
 	});
-	
-	readdirSync("./events/").forEach(file => {
-		if (!file.endsWith(".js")) return;
-		let fileName = file.split(".")[0];
-		client.on(fileName, require(`../events/${fileName}`).bind(null, client));
-		console.log(`Loaded the ${fileName} Event!`);
+
+	events.forEach(file => {
+		client.on(file, require(`../events/${file}`).bind(null, client));
+		console.log(`Initialized ${file} Event`);
 	});
 };
