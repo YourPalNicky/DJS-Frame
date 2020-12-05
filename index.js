@@ -13,4 +13,4 @@ client.config = config;
 
 eval(require("./utils/handler_manager")(client));
 
-client.login(process.env.BOT_TOKEN).then(() => console.log("Successfully logged in!")); 
+client.login(process.env.BOT_TOKEN).then(() => console.log("Successfully logged in!"));
